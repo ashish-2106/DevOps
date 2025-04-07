@@ -1,56 +1,60 @@
 # Installation of Ansible and Deploy Playbook to web server
 
+---
+
 ## Procedure to install Ansible in Mac OS
 
-1. Install Ansible
+1. **Install Ansible**
 
-``` bash
+```bash
 brew install ansible
 ```
 
-2. Check Ansible version
+2. **Check Ansible version**
 
-``` bash
+```bash
 ansible --version
 ```
 
+---
+
 ## Procedure to install in Ubuntu
 
-1. Update the apt package index
+1. **Update the apt package index**
 
-``` bash
+```bash
 sudo apt update
 sudo apt upgrade
 ```
 
-2. Install Ansible
+2. **Install Ansible**
 
-``` bash
+```bash
 sudo apt install ansible
 ```
 
-3. Check Ansible version
+3. **Check Ansible version**
 
-``` bash
+```bash
 ansible --version
 ```
 
-4. Create a directory for Ansible
+4. **Create a directory for Ansible**
 
-``` bash
+```bash
 mkdir ansible
 cd ansible
 ```
 
-5. Create a file named `playbook.yml` using the following command
+5. **Create a file named `playbook.yml`**
 
-``` bash
+```bash
 touch playbook.yml
 ```
 
-6. Copy the following code and paste it in the file `playbook.yml`
+6. **Add the following content to `playbook.yml`**
 
-``` bash
+```yaml
 - name: Install and configure web server
   hosts: localhost
   connection: local
@@ -77,15 +81,15 @@ touch playbook.yml
         state: restarted
 ```
 
-7. Create a file named `index.html.j2` using the following command
+7. **Create a file named `index.html.j2`**
 
-``` bash
+```bash
 touch index.html.j2
 ```
 
-8. Copy the following code and paste it in the file `index.html.j2`
+8. **Add the following content to `index.html.j2`**
 
-``` html
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,12 +103,15 @@ touch index.html.j2
 </html>
 ```
 
-9. Run the playbook using the following command
+9. **Run the playbook**
 
-``` bash
+```bash
 ansible-playbook playbook.yml
 ```
 
-10. Open the browser and type `localhost` [Link](https://localhost) in the address bar and hit enter
+10. **Open the browser and go to**: [http://localhost](http://localhost)
 
-11. You will see the following output
+---
+
+### ✅ Output:
+You will see a **"Hello World!"** message rendered on the page.
